@@ -1,0 +1,46 @@
+.header{
+  display: flex;
+  align-items: center;
+  &__label{
+    text-transform: uppercase;
+    color: #F0E6E8;    
+    font-weight: 400;
+    padding: .25rem 0;
+    font-size: 2rem;
+    letter-spacing: .1rem;
+  }
+}
+
+.genres{
+  margin: 3rem -.8rem;
+  &__list{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+
+    &__item{
+      font-size: 1.5rem;
+      font-weight: 700;      
+      text-transform: capitalize;
+      color: #686868;
+      margin: 0 1rem;
+      transition: all .2s;
+      &:hover{
+        color: white;
+      }
+    }
+
+    &__link{
+      cursor: pointer;
+    }
+  }
+}
+
+.active{
+  color: #DB1D40;
+  font-weight: 700;
+  &:hover{
+    color: #DB1D40;
+  }
+}

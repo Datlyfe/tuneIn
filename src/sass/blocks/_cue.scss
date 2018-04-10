@@ -1,0 +1,59 @@
+.cue-song{
+  animation-duration: .7s;
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.7rem;
+  img{
+    width: 100%;
+    padding: .5rem;
+    border-radius: 50%;
+    background: #d8d6d6;
+  }
+
+  .spin{
+     -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 15s linear infinite;
+  }
+
+  @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+  @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+  @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+
+
+  .title{
+    margin-top: 1.5rem;
+    // align-self: flex-start;
+    color: white;
+    display: block;
+  }
+  .artist{
+    // align-self: flex-start;    
+    color: #d8d6d6;
+  }
+}
+.playing-label{
+  // align-self: flex-start;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #e4e4e4;
+}
+
+.player{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2.5rem auto;
+  .fa{
+    cursor: pointer;
+    font-size: 2rem !important ;
+    &-play-circle,&-pause{
+      font-size: 3rem !important;
+      flex: 1;
+    }
+    margin: 0 4rem;
+  }
+}

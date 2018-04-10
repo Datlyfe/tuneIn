@@ -1,0 +1,51 @@
+.feed{
+  margin-top: 5rem;
+}
+
+.feed__list{
+  list-style: none;
+  .song{
+    display: flex;
+    align-items: center;
+    margin: 2.5rem 0;
+    &__image{
+      backface-visibility: hidden;
+      cursor: pointer;
+      border-radius: 50%;
+      border: 2px solid rgb(194, 194, 194);      
+      height: 65px;
+      transition: all .3s;
+      &:hover{
+        transform: scale(1.08);
+      }
+    }
+    &__info{
+      margin: 0 2rem;
+      font-size: 1.6rem;
+      .title{
+        color: white;
+        display: block;
+      }
+      .artist{
+        color: silver;
+      }
+    }
+  }
+}
+
+.rank{
+  margin-left:auto;
+  margin-right: 3rem; 
+  .fav{
+    color: rgb(170, 170, 170);
+    font-size: 1.8rem !important;
+    &:hover{
+      cursor: pointer;
+      color: #DB1D40;
+    }
+  }
+  .liked{
+    color: #DB1D40 !important;
+  }
+}
+

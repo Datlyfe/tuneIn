@@ -1,0 +1,39 @@
+.loved{
+  margin-top: 2rem;
+  &__list{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__info{
+    font-size: 1.6rem;
+    margin: 0 2rem;
+    .title{
+      display: block;
+    }
+     .artist{
+      color: silver;
+    }
+  }
+
+  &__item{
+    display: flex;
+    align-items: center;
+    margin: 1.5rem 1rem;
+    width: calc(100%/2 - 2rem);
+    
+    .image{
+      height: 120px;
+      // height: 150px;
+      transition: all .3s;      
+      border: 1px solid rgb(14, 14, 14);
+      background: rgb(223, 223, 223);
+      padding: .3rem;
+      &:hover{
+      cursor: pointer;
+      transform: translateY(-3px);
+    }
+      // border-radius: 50%;
+    }
+  }
+}
