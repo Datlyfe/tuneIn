@@ -1,7 +1,7 @@
 # TuneIn
 This is a javascript project developed with vueJs.
 ## Demo
-https://tunein-feec4.firebaseapp.com/
+https://tunein.netlify.com/
 ## ScreenShot
 ![](public/app.png)
 ## Development server
