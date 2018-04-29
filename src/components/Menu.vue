@@ -44,8 +44,8 @@
     </nav>
     <!-- Watermark -->
     <div class="watermark">
-      <img src="@/assets/img/sig.png" alt="">
-      <span class="watermark__label">Made With Love <i class="fa fa-heart watermark__icon"></i></span>
+      <!-- <img src="@/assets/img/sig.png" alt=""> -->
+      <a href="https://github.com/MoezBouaggad/TuneIn" target="_blank" class="watermark__label">Github<i class="fa fa-github watermark__icon"></i></a>
     </div>
   </div>
 </template>

@@ -12,7 +12,7 @@
       <div  v-for="res in searchResults" :key="res.id" class="res">
         <div class="placeholder">
           <div @click="cue(res)" class="image" :style="getBgImg(res.album.cover_small)">
-          </div>
+        </div>
         </div>
         
         <div class="res__info">

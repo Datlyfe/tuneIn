@@ -4,7 +4,9 @@
     <div :hidden="loading" class="feed animated fadeIn">
       <ul class="feed__list">
         <li class="song" v-for="song in feed" :key="song.id">
-          <img @click="cue(song)" class="song__image" :src="song.album.cover_small" alt="">
+          <div class="placeholder placeholder__feed">
+            <div @click="cue(song)" class="image image__feed" :style="getBgImg(song.album.cover_small)"></div>
+          </div>
           <div class="song__info">
             <span class="title">{{shorten(song.title,25)}}</span>
             <span class="artist">{{song.artist.name}}</span>          
@@ -43,6 +45,9 @@ export default {
     abbreviate,
     isLiked,
     shorten,
+     getBgImg(src){
+      return { backgroundImage: `url(${src})` }
+    },
     likeSong(song){
       if(isLiked(this.likes,song.id)){
         this.$store.commit('unlike',song);
