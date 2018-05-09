@@ -1,7 +1,7 @@
 # TuneIn
 This is a javascript project developed with VueJs.
 
-Simple and elegent music discovery app
+Simple and elegant music discovery app
 ## Demo
 https://tunein.netlify.com/
 ## ScreenShot
