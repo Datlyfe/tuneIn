@@ -1,59 +1,100 @@
-.cue-song{
-  animation-duration: .7s;
-  margin-top: 3rem;
+.cue-song {
+  animation-duration: 0.7s;
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 1.7rem;
-  img{
+  font-size: 17px;
+  img {
     width: 100%;
-    padding: .5rem;
+    padding: 5px;
     border-radius: 50%;
     background: #d8d6d6;
   }
 
-  .spin{
-     -webkit-animation:spin 4s linear infinite;
-    -moz-animation:spin 4s linear infinite;
-    animation:spin 15s linear infinite;
+  .spin {
+    -webkit-animation: spin 4s linear infinite;
+    -moz-animation: spin 4s linear infinite;
+    animation: spin 15s linear infinite;
   }
 
-  @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-  @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-  @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+  @-moz-keyframes spin {
+    100% {
+      -moz-transform: rotate(360deg);
+    }
+  }
+  @-webkit-keyframes spin {
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+  @keyframes spin {
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
 
-
-
-  .title{
-    margin-top: 1.5rem;
+  .title {
+    margin-top: 15px;
     // align-self: flex-start;
     color: white;
     display: block;
   }
-  .artist{
-    // align-self: flex-start;    
+  .artist {
+    // align-self: flex-start;
     color: #d8d6d6;
   }
 }
-.playing-label{
+.playing-label {
   // align-self: flex-start;
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
+  font-size: 15px;
+  margin-bottom: 15px;
   color: #e4e4e4;
 }
 
-.player{
+.player {
+  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  margin: 2.5rem auto;
-  .fa{
+  margin: 25px auto;
+  .icon {
     cursor: pointer;
-    font-size: 2rem !important ;
-    &-play-circle,&-pause{
-      font-size: 3rem !important;
-      flex: 1;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .playing-label {
+    display: none;
+  }
+  .cue-song {
+    flex-direction: row;
+    margin: 0;
+    img {
+      width: 100px;
+      height: 100px;
+      border-radius: 0;
+      transform: rotate(0deg) !important;
     }
-    margin: 0 4rem;
+    .spin {
+      animation: unset;
+    }
+    .title {
+      margin-top: 0;
+      margin: 0 20px;
+    }
+    .title,
+    .artist {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+  .player {
+    width: auto;
+    margin: 0;
+    margin-left: auto;
+    margin-right: 20px;
   }
 }

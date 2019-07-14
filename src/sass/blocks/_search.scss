@@ -8,26 +8,26 @@
   width: min-content;
   color: white;
   background-color: rgb(65, 65, 65);
-  border-radius: 10rem;
+  border-radius: 100px;
   display: flex;
   margin: 0 auto;
   align-items: center;
-  padding-left: 3rem;
+  padding-left: 30px;
   transition: all .3s; 
 
 
   &__field {
     background: none;
     border: none;
-    padding: .8rem 0;
+    padding: 8px 0;
     font-family: inherit;
     color: inherit;
-    font-size: 1.7rem;
-    width: 30rem; 
+    font-size: 17px;
+    width: 300px; 
     transition: all .3s;
 
      &:focus-within{
-      width: 40rem;
+      width: 400px;
       }
 
     &:focus{
@@ -35,15 +35,15 @@
     }
     &::placeholder{
       color: rgb(187, 187, 187);
-      font-size: 1.5rem;
+      font-size: 15px;
     }
   }
 }
 .res__header{
-  margin:5rem 0;
-  margin-bottom: 2rem;
+  margin:50px 0;
+  margin-bottom: 20px;
   &__label{
-    font-size:1.8rem;
+    font-size:18px;
   }
 }
 
@@ -54,13 +54,13 @@
   width: 100%;
   .res{
     align-items: center;
-    margin: 1.5rem 1rem;
-    width: calc(100%/3 - 2rem);
+    margin: 15px 10px;
+    width: calc(100%/3 - 20px);
     display: flex;
 
     &__info{
-      margin: 0 2rem;
-      font-size: 1.4rem;
+      margin: 0 20px;
+      font-size: 14px;
       .title{
         display: block;
       }

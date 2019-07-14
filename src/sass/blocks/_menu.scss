@@ -1,95 +1,92 @@
-.logo{
+.logo {
   display: flex;
   align-items: center;
-  &__label{
+  &__label {
     text-transform: uppercase;
     font-weight: 700;
-    font-size: 2.5rem;
-    letter-spacing: .2rem;
+    font-size: 25px;
+    letter-spacing: 2px;
   }
 
-  &__img{
+  &__img {
     height: 40px;
-    margin-right: 1.5rem;
+    margin-right: 15px;
   }
 }
 
-.nav{
-  margin: 5rem 0;
+.nav {
+  margin: 50px 0;
 
-  &__label{
-    margin: 1rem 0;
-    font-size: 1.6rem;
+  &__label {
+    margin: 10px 0;
+    font-size: 20px;
+    text-transform: uppercase;
   }
 
-  &__list{
-    &__item{
-      padding-left: 1.3rem;
+  &__list {
+    &__item {
+      padding-left: 13px;
       backface-visibility: hidden;
       display: flex;
       align-items: center;
-      font-size: 1.4rem;
-      margin: 2rem 0;
-      color: #F0E6E8;
+      font-size: 15px;
+      font-weight: 600;
+      margin: 20px 0;
+      color: #f0e6e8;
       cursor: pointer;
-      &:hover{
+      &:hover {
         color: white;
       }
     }
 
-    &__link{
+    &__link {
       text-decoration: none;
       color: inherit;
+      margin-left: 10px;
     }
   }
 }
 
-
-
-
-.fa{
-  font-size: 1rem !important;
-  margin-right:.8rem;
-  &__big{
-    color: #F0E6E8;        
-    margin-left: 1rem;
-    font-size: 1.7rem !important;
-  }
-}
-
-.router-link-exact-active{
-  padding-left: .9rem;
+.router-link-exact-active {
+  padding-left: 9px;
   color: white;
-  border-left: 4px solid #DB1D40;
-}
-.premium{
-  color: #FDAB00;
+  border-left: 4px solid #db1d40;
 }
 
-.watermark{
+.watermark {
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
   position: absolute;
-  bottom: 2rem;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  img{
-    margin: 0 1rem;
+  img {
+    margin: 0 10px;
     height: 50px;
   }
-  &__label{
+  &__label {
     text-decoration: none;
     cursor: pointer;
-    font-size: 1.8rem;
+    font-size: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #d8bfd8;
+    color: #dddddd;
   }
-  &__icon{
-    font-size: 2rem !important;
-    margin-left:1rem;
+  &__icon {
+    font-size: 20px !important;
+    margin-left: 10px;
   }
+  
 }
+
+@media only screen and (max-width: 625px) {
+ .menu{
+   .logo{
+     display: none;
+   }
+ }
+}
+

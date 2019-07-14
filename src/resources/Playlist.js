@@ -1,8 +1,8 @@
 export default {
-  playlist: (id) => {
+  playlist: id => {
     return {
-      path: `playlist/${id}/tracks?output=jsonp`,
+      path: `chart/${id}/tracks?output=jsonp`,
       resolve: (data, mappers) => mappers.pipe(data)
-    }
+    };
   }
-}
+};

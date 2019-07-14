@@ -5,14 +5,14 @@
     text-transform: uppercase;
     color: #F0E6E8;    
     font-weight: 400;
-    padding: .25rem 0;
-    font-size: 2rem;
-    letter-spacing: .1rem;
+    padding: 2.5px 0;
+    font-size: 20px;
+    letter-spacing: 1px;
   }
 }
 
 .genres{
-  margin: 3rem -.8rem;
+  margin: 30px -8px;
   &__list{
     list-style: none;
     display: flex;
@@ -20,11 +20,11 @@
     align-items: flex-start;
 
     &__item{
-      font-size: 1.5rem;
+      font-size: 15px;
       font-weight: 700;      
       text-transform: capitalize;
       color: #686868;
-      margin: 0 1rem;
+      margin: 0 10px;
       transition: all .2s;
       &:hover{
         color: white;

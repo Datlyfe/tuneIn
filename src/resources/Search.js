@@ -1,8 +1,8 @@
 export default {
-  search: (term) => {
+  search: term => {
     return {
       path: `search?q=${term}&output=jsonp&limit=24`,
       resolve: (data, mappers) => mappers.pipe(data)
-    }
+    };
   }
-}
+};

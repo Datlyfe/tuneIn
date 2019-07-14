@@ -1,13 +1,13 @@
 .loved{
-  margin-top: 2rem;
+  margin-top: 20px;
   &__list{
     list-style: none;
     display: flex;
     flex-wrap: wrap;
   }
   &__info{
-    font-size: 1.6rem;
-    margin: 0 2rem;
+    font-size: 16px;
+    margin: 0 20px;
     .title{
       display: block;
     }
@@ -19,16 +19,15 @@
   &__item{
     display: flex;
     align-items: center;
-    margin: 1.5rem 1rem;
-    width: calc(100%/2 - 2rem);
+    margin: 15px 10px;
+    width: calc(100%/2 - 20px);
     
     .image{
-      height: 120px;
-      // height: 150px;
+      height: 80px;
       transition: all .3s;      
       border: 1px solid rgb(14, 14, 14);
       background: rgb(223, 223, 223);
-      padding: .3rem;
+      padding: 3px;
       &:hover{
       cursor: pointer;
       transform: translateY(-3px);

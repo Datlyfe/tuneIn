@@ -1,6 +1,6 @@
 <template>
   <div class="Discover">
-     <!-- Header -->
+    <!-- Header -->
     <div class="header">
       <h1 class="header__label">Discover</h1>
       <!-- <i class="fa fa-binoculars fa__big"></i> -->
@@ -8,13 +8,19 @@
     <!-- Navigation -->
     <nav class="genres">
       <ul class="genres__list">
-        <li @click="getGenre(genre.playlistId,genre.id)" v-for="genre in genres" :key="genre.id" class="genres__list__item" :class="{active:genreId==genre.id}">
-          <span class="genres__list__link">{{genre.name}}</span>
+        <li
+          @click="getGenre(genre.playlistId, genre.id)"
+          v-for="genre in genres"
+          :key="genre.id"
+          class="genres__list__item"
+          :class="{ active: genreId == genre.id }"
+        >
+          <span class="genres__list__link">{{ genre.name }}</span>
         </li>
       </ul>
     </nav>
     <!-- feed -->
-    <Feed :playlistId="playlistId"/>
+    <Feed :genreId="genreId" />
   </div>
 </template>
 
@@ -22,24 +28,23 @@
 import Feed from "./Feed";
 import Genres from "../static/GenresMap";
 export default {
-  name:'Discover',
-  resource:'Genres',
-  components:{
+  name: "Discover",
+  resource: "Genres",
+  components: {
     Feed
   },
-  data(){
-    return{
-      genres:Genres,
-      genreId:132,
-      playlistId:2098157264
-    }
+  data() {
+    return {
+      genres: Genres,
+      genreId: 132,
+      playlistId: 2098157264
+    };
   },
-  methods:{
-    getGenre(playlistId,genreId){
-      this.playlistId=playlistId
-      this.genreId=genreId;
+  methods: {
+    getGenre(playlistId, genreId) {
+      this.playlistId = playlistId;
+      this.genreId = genreId;
     }
   }
-}
+};
 </script>
-

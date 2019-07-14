@@ -1,5 +1,5 @@
 .feed{
-  margin-top: 5rem;
+  margin-top: 50px;
 }
 
 .feed__list{
@@ -7,7 +7,7 @@
   .song{
     display: flex;
     align-items: center;
-    margin: 2.5rem 0;
+    margin: 25px 0;
     &__image{
       backface-visibility: hidden;
       cursor: pointer;
@@ -20,8 +20,8 @@
       }
     }
     &__info{
-      margin: 0 2rem;
-      font-size: 1.6rem;
+      margin: 0 20px;
+      font-size: 16px;
       .title{
         color: white;
         display: block;
@@ -35,10 +35,10 @@
 
 .rank{
   margin-left:auto;
-  margin-right: 3rem; 
+  margin-right: 30px; 
   .fav{
     color: rgb(170, 170, 170);
-    font-size: 1.8rem !important;
+    font-size: 18px !important;
     &:hover{
       cursor: pointer;
       color: #DB1D40;
