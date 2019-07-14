@@ -3,7 +3,6 @@
     <!-- Header -->
     <div class="header">
       <h1 class="header__label">Discover</h1>
-      <!-- <i class="fa fa-binoculars fa__big"></i> -->
     </div>
     <!-- Navigation -->
     <nav class="genres">

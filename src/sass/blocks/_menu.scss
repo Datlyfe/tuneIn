@@ -75,18 +75,19 @@
     justify-content: center;
     color: #dddddd;
   }
-  &__icon {
-    font-size: 20px !important;
+
+  .icon {
     margin-left: 10px;
   }
-  
 }
 
 @media only screen and (max-width: 625px) {
- .menu{
-   .logo{
-     display: none;
-   }
- }
+  .menu {
+    .logo {
+      display: none;
+    }
+    .nav {
+      margin: 0;
+    }
+  }
 }
-

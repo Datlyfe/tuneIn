@@ -7,9 +7,8 @@
     <Main />
     <Cue />
     <div class="menu-mobile">
-      <box-icon @click="toggleMenu" class="icon" color="#f5f5f5" size="50px" name="menu-alt-left"></box-icon>
+      <box-icon @click="toggleMenu" class="icon" color="#f5f5f5" size="30px" name="menu"></box-icon>
       <div style="margin:auto" class="logo">
-        <img class="logo__img" src="@/assets/img/logo.png" alt="Logo" />
         <h1 class="logo__label">TuneIn</h1>
       </div>
     </div>

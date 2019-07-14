@@ -64,15 +64,3 @@ function annotate(number, maxPlaces, forcePlaces, abbr) {
   }
   return rounded + abbr;
 }
-
-abbreviate(1200000, 2, false, false);
-abbreviate(1248000, 2, false, false);
-abbreviate(248000, 2, false, false);
-
-abbreviate(1200000, 2, 2, false);
-abbreviate(1248000, 2, 2, false);
-abbreviate(248000, 2, 2, false);
-
-abbreviate(1200000, 3, 3, "M");
-abbreviate(1248000, 3, 3, "M");
-abbreviate(248000, 3, 3, "M");

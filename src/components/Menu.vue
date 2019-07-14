@@ -50,10 +50,9 @@
     </nav>
     <!-- Watermark -->
     <div class="watermark">
-      <!-- <img src="@/assets/img/sig.png" alt=""> -->
-      <a href="https://github.com/MoezBouaggad/TuneIn" target="_blank" class="watermark__label">
+      <a href="https://github.com/Datlyfe/tuneIn" target="_blank" class="watermark__label">
         Github
-        <i class="fa fa-github watermark__icon"></i>
+        <box-icon class="icon" color="white" name='github' type='logo' ></box-icon>
       </a>
     </div>
   </div>

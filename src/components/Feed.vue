@@ -16,11 +16,12 @@
             <span class="artist">{{ song.artist.name }}</span>
           </div>
           <div class="rank">
-            <i
+            <box-icon
+              name="heart"
               @click="likeSong(song)"
-              :class="{ liked: isLiked(likes, song.id) }"
-              class="fa fa-heart fav"
-            ></i>
+              :color="isLiked(likes, song.id)?'#DB1D40':'white'"
+              :type="isLiked(likes, song.id)?'solid':'regular'"
+            ></box-icon>
           </div>
         </li>
       </ul>

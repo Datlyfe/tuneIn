@@ -11,7 +11,7 @@ clone the project and run the following commands:
 
 yarn (or npm install)
 
-yarn serve (or npm run serve) 
+yarn dev (or npm run dev) 
 
 The app should be running on localhost port 8080
 ### contact
