@@ -6,6 +6,7 @@ import Resource from "./plugins/resource";
 import * as resources from "./resources";
 
 import "boxicons";
+import './registerServiceWorker'
 
 Vue.config.productionTip = false;
 Vue.use(Resource, {
