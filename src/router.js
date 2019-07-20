@@ -1,9 +1,8 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Discover from "./components/Discover";
-import Search from "./components/Search";
-import Likes from "./components/Likes";
-import Page404 from "./components/Page404";
+
+const loadRoute = route => () =>
+  import(/* webpackPrefetch: true */ `./components/${route}.vue`);
 
 Vue.use(Router);
 
@@ -13,32 +12,32 @@ export default new Router({
     {
       path: "/",
       name: "home",
-      component: Discover
+      component: loadRoute("Discover")
     },
     {
       path: "/search",
       name: "search",
-      component: Search
+      component: loadRoute("Search")
     },
     {
       path: "/likes",
       name: "likes",
-      component: Likes
+      component: loadRoute("Likes")
     },
     {
       path: "/app",
       name: "app",
-      component: Page404
+      component: loadRoute("Page404")
     },
     {
       path: "/premium",
       name: "premium",
-      component: Page404
+      component: loadRoute("Page404")
     },
     {
       path: "/settings",
       name: "settings",
-      component: Page404
+      component: loadRoute("Page404")
     }
   ]
 });

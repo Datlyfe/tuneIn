@@ -16,10 +16,8 @@
       <span class="title">{{ shorten(song.title, 30) }}</span>
       <span class="artist">{{ song.artist.name }}</span>
       <div class="player">
-        <!-- <box-icon class="icon" color="white" size="40px" name="skip-previous"></box-icon> -->
-        <box-icon class="icon" color="white" size="60px" @click="play" v-if="!playing" name="play"></box-icon>
-        <box-icon class="icon" color="white" size="60px" @click="pause" v-if="playing" name="pause"></box-icon>
-        <!-- <box-icon class="icon" color="white" size="40px" name="skip-next"></box-icon> -->
+        <i class="icon bx bx-play" @click="play" v-if="!playing"></i>
+        <i class="icon bx bx-pause" @click="pause" v-if="playing"></i>
       </div>
     </div>
   </div>

@@ -16,13 +16,7 @@
           :to="item.to"
           class="nav__list__item"
         >
-          <box-icon
-            style="height:unset"
-            size="18px"
-            :color="item.icon.color || '#f0e6e8'"
-            :name="item.icon.name"
-            :type="item.icon.type"
-          ></box-icon>
+          <i :class="['icon',item.icon]"></i>
           <span class="nav__list__link">{{ item.name }}</span>
         </router-link>
       </ul>
@@ -38,12 +32,7 @@
           :to="item.to"
           class="nav__list__item"
         >
-          <box-icon
-            size="18px"
-            :color="item.icon.color || '#f0e6e8'"
-            :name="item.icon.name"
-            :type="item.icon.type"
-          ></box-icon>
+          <i :class="['icon',item.icon,{'star':item.name=='Premium'}]"></i>
           <span class="nav__list__link">{{ item.name }}</span>
         </router-link>
       </ul>
@@ -52,7 +41,7 @@
     <div class="watermark">
       <a href="https://github.com/Datlyfe/tuneIn" target="_blank" class="watermark__label">
         Github
-        <box-icon class="icon" color="white" name='github' type='logo' ></box-icon>
+        <i class="bx bxl-github icon"></i>
       </a>
     </div>
   </div>
@@ -66,34 +55,34 @@ export default {
         {
           name: "Discover",
           to: "/",
-          icon: { name: "album", type: "solid" }
+          icon: "bx bxs-album"
         },
         {
           name: "Search",
           to: "/search",
-          icon: { name: "search-alt-2", type: "solid" }
+          icon: "bx bx-search"
         },
         {
           name: "Your Tunes",
           to: "/likes",
-          icon: { name: "heart", type: "solid" }
+          icon: "bx bxs-heart"
         }
       ],
       servicesItems: [
         {
           name: "Get The App",
           to: "/app",
-          icon: { name: "circle", type: "solid" }
+          icon: "bx bxs-circle"
         },
         {
           name: "Premium",
           to: "/premium",
-          icon: { name: "star", type: "solid", color: "orange" }
+          icon: "bx bxs-star"
         },
         {
           name: "Settings",
           to: "/settings",
-          icon: { name: "cog", type: "solid" }
+          icon: "bx bxs-cog"
         }
       ]
     };
