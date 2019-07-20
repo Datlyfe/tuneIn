@@ -10,7 +10,7 @@
         :class="{ spin: playing }"
         @error="loadingEnd"
         @load="loadingEnd"
-        :src="song.album.cover_medium"
+        :src="getSrc(song.album.cover_medium)"
         alt
       />
       <span class="title">{{ shorten(song.title, 30) }}</span>
@@ -40,6 +40,9 @@ export default {
   },
   methods: {
     shorten,
+    getSrc(src) {
+      return src.replace(/^http:\/\//i, "https://");
+    },
     play() {
       this.playing = true;
       this.audio.play();
@@ -69,7 +72,7 @@ export default {
         if (this.prev.album.cover_medium == this.song.album.cover_medium) {
           setTimeout(() => {
             this.loading = false;
-          }, 50);
+          }, 20);
         }
       }
 

@@ -50,7 +50,7 @@ export default {
     isLiked,
     shorten,
     getBgImg(src) {
-      return { backgroundImage: `url(${src})` };
+      return { backgroundImage: `url(${src.replace(/^http:\/\//i, 'https://')})` };
     },
     likeSong(song) {
       if (isLiked(this.likes, song.id)) {

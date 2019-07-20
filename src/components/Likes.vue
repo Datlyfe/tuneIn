@@ -10,7 +10,7 @@
           <img
             @click="cue(fav)"
             class="image"
-            :src="fav.album.cover_medium"
+            :src="getSrc(fav.album.cover_medium)"
             alt=""
           />
           <div class="loved__info">
@@ -39,6 +39,9 @@ export default {
   },
   methods: {
     shorten,
+    getSrc(url){
+      return url.replace(/^http:\/\//i, 'https://');
+    },
     removeFav(song) {
       this.$store.commit("unlike", song);
     },
