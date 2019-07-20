@@ -2,7 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 
 const loadRoute = route => () =>
-  import(/* webpackPrefetch: true */ `./components/${route}.vue`);
+  import(/* webpackChunkName: "view-[request]" */ `./components/${route}.vue`);
 
 Vue.use(Router);
 
