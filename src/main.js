@@ -5,7 +5,7 @@ import store from "./store";
 import Resource from "./plugins/resource";
 import * as resources from "./resources";
 
-import "boxicons";
+import "boxicons/css/boxicons.min.css";
 import './registerServiceWorker'
 
 Vue.config.productionTip = false;
