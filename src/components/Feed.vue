@@ -17,7 +17,10 @@
           </div>
           <div class="rank">
             <i
-              :class="[{'bxs-heart liked':isLiked(likes,song.id)},'fav bx bx-heart']"
+              :class="[
+                { 'bxs-heart liked': isLiked(likes, song.id) },
+                'fav bx bx-heart'
+              ]"
               @click="likeSong(song)"
             ></i>
           </div>
@@ -50,7 +53,9 @@ export default {
     isLiked,
     shorten,
     getBgImg(src) {
-      return { backgroundImage: `url(${src.replace(/^http:\/\//i, 'https://')})` };
+      return {
+        backgroundImage: `url(${src})`
+      };
     },
     likeSong(song) {
       if (isLiked(this.likes, song.id)) {

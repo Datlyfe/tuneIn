@@ -7,7 +7,7 @@
     <Main />
     <Cue />
     <div class="menu-mobile">
-      <i  @click="toggleMenu" class="icon bx bx-menu"></i>
+      <i @click="toggleMenu" class="icon bx bx-menu"></i>
       <div style="margin:auto" class="logo">
         <h1 class="logo__label">TuneIn</h1>
       </div>
@@ -39,7 +39,6 @@ export default {
       let menu = document.getElementById("menu");
       wrap.classList.remove("wrap-open");
       menu.classList.remove("open");
-
     }
   }
 };

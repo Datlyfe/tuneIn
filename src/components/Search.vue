@@ -52,7 +52,9 @@ export default {
   methods: {
     shorten,
     getBgImg(src) {
-      return { backgroundImage: `url(${src.replace(/^http:\/\//i, 'https://')})` };
+      return {
+        backgroundImage: `url(${src})`
+      };
     },
     cue(song) {
       Ebus.$emit("newCue", song, false);

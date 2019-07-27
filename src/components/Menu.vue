@@ -16,7 +16,7 @@
           :to="item.to"
           class="nav__list__item"
         >
-          <i :class="['icon',item.icon]"></i>
+          <i :class="['icon', item.icon]"></i>
           <span class="nav__list__link">{{ item.name }}</span>
         </router-link>
       </ul>
@@ -32,14 +32,19 @@
           :to="item.to"
           class="nav__list__item"
         >
-          <i :class="['icon',item.icon,{'star':item.name=='Premium'}]"></i>
+          <i :class="['icon', item.icon, { star: item.name == 'Premium' }]"></i>
           <span class="nav__list__link">{{ item.name }}</span>
         </router-link>
       </ul>
     </nav>
     <!-- Watermark -->
     <div class="watermark">
-      <a href="https://github.com/Datlyfe/tuneIn" target="_blank" class="watermark__label">
+      <a
+        rel="noreferrer"
+        href="https://github.com/Datlyfe/tuneIn"
+        target="_blank"
+        class="watermark__label"
+      >
         Github
         <i class="bx bxl-github icon"></i>
       </a>
