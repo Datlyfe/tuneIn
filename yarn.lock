@@ -8656,9 +8656,10 @@ vue-mq@^1.0.1:
   dependencies:
     json2mq "^0.2.0"
 
-vue-router@^3.0.7:
-  version "3.0.7"
-  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.0.7.tgz#b36ca107b4acb8ff5bc4ff824584059c23fcb87b"
+vue-router@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.1.1.tgz#0893c29548ba2dbe35ed104dcd1aa06743aa0ead"
+  integrity sha512-RAFCIQjs4gbDV7YNH44c1GT0jXSTFvNhKh3o0xiA/UWI1EM7Eriv45n8kM+R8NZ58wXEGtKVaDVBlrXJBuM/Bg==
 
 vue-style-loader@^4.1.0:
   version "4.1.2"
