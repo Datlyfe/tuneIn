@@ -3,13 +3,11 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import Resource from "./plugins/resource";
-import VueMq from 'vue-mq'
-
+import VueMq from "vue-mq";
 
 import * as resources from "./resources";
 
 import "boxicons/css/boxicons.min.css";
-import "./registerServiceWorker";
 
 Vue.config.productionTip = false;
 Vue.use(Resource, {
@@ -18,12 +16,13 @@ Vue.use(Resource, {
 });
 
 Vue.use(VueMq, {
-  breakpoints: { // default breakpoints - customize this
+  breakpoints: {
+    // default breakpoints - customize this
     sm: 450,
     md: 1200,
-    lg: Infinity,
-  },
-})
+    lg: Infinity
+  }
+});
 
 new Vue({
   router,

@@ -1,8 +1,9 @@
 import Vue from "vue";
 import Router from "vue-router";
-
-const loadRoute = route => () =>
-  import(/* webpackChunkName: "view-[request]" */ `./components/${route}.vue`);
+import Discover from "./components/Discover.vue";
+import Search from "./components/Search.vue";
+import Likes from "./components/Likes.vue";
+import Page404 from "./components/Page404.vue";
 
 Vue.use(Router);
 
@@ -12,32 +13,32 @@ export default new Router({
     {
       path: "/",
       name: "home",
-      component: loadRoute("Discover")
+      component: Discover
     },
     {
       path: "/search",
       name: "search",
-      component: loadRoute("Search")
+      component: Search
     },
     {
       path: "/likes",
       name: "likes",
-      component: loadRoute("Likes")
+      component: Likes
     },
     {
       path: "/app",
       name: "app",
-      component: loadRoute("Page404")
+      component: Page404
     },
     {
       path: "/premium",
       name: "premium",
-      component: loadRoute("Page404")
+      component: Page404
     },
     {
       path: "/settings",
       name: "settings",
-      component: loadRoute("Page404")
+      component: Page404
     }
   ]
 });
