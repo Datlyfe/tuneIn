@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - master
+      - github-prod
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -16,5 +16,6 @@ jobs:
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BRANCH: gh-pages
+        BASE_BRANCH: github-prod
         FOLDER: dist
         BUILD_SCRIPT: npm install && npm run build
