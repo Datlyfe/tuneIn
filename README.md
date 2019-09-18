@@ -1,18 +1,29 @@
-# TuneIn
+# TuneIn 🎶
 This is a javascript project developed with VueJs.
 
 Simple and elegant music discovery app
 ## Demo
+
 https://tunein.netlify.com/
-## ScreenShot
+## Preview
 ![](public/app.png)
-## Development server
-clone the project and run the following commands:
 
-yarn (or npm install)
+## Getting Started 🚀
 
-yarn dev (or npm run dev) 
+- Clone the repo
+- Install the dependicies with ``` npm install```
+- start development server with ``` npm run dev ```
+ The App should be running on localhost port 8080
+ 
+## Support me 👊
 
-The app should be running on localhost port 8080
-### contact
+⭐ this repo if you like it.
+
+Buy me a cup of coffee ☕️:
+
+<a href="https://www.buymeacoffee.com/bq6EgoCp0" target="_blank"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+
+Thank you in advance 👍
+
+### contact 📧
 Email : MrBouaggadMoez@gmail.com
