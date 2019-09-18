@@ -11,7 +11,7 @@ Simple and elegant music discovery app
 
 - Clone the repo
 - Install the dependicies with ``` npm install```
-- start development server with ``` npm run dev ```
+- Start the development server with ``` npm run dev ```
  The App should be running on localhost port 8080
  
 ## Support me 👊
