@@ -2,11 +2,10 @@
 This is a javascript project developed with VueJs.
 
 Simple and elegant music discovery app
-## Demo
 
-https://tunein.netlify.com/
-## Preview
-![](public/app.png)
+## Preview 📸
+### https://tunein.netlify.com/
+<img src="public/app.png" >
 
 ## Getting Started 🚀
 
