@@ -1661,10 +1661,10 @@ boolbase@^1.0.0, boolbase@~1.0.0:
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha1-aN/1++YMUes3cl6p4+0xDcwed24=
 
-boxicons@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/boxicons/-/boxicons-2.0.2.tgz#d5f45200aa98b6665ccab213f5d47fb7d4ae537f"
-  integrity sha512-KSobFvavl9RKnLHuEEALkZbZqqWGoJJT0VsOPEwGD+46oeziFwtaVCWp0Gm8J5wfUaC+EG1s2wed6ErcqE0y9A==
+boxicons@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/boxicons/-/boxicons-2.0.4.tgz#66c4a271b8171195fc1e69fc293baa26c9e87184"
+  integrity sha512-LQ0iV4DsqQnu7Y7PzOl6IrLn5gtnSdrq8N9y7eqogisLUaXt2j6G2NltWslp0f8I5T7OAt8yfR0Jdldgq43h/Q==
   dependencies:
     "@webcomponents/webcomponentsjs" "^2.0.2"
     prop-types "^15.6.0"
