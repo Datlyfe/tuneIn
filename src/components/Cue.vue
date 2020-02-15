@@ -24,10 +24,10 @@
 </template>
 
 <script>
-import { Ebus } from "../Ebus.js";
-import { shorten } from "../helpers";
+import { Ebus } from '../Ebus.js'
+import { shorten } from '../helpers'
 export default {
-  name: "cue",
+  name: 'cue',
   data() {
     return {
       song: null,
@@ -36,47 +36,47 @@ export default {
       audio: null,
       prev: null,
       next: null
-    };
+    }
   },
   methods: {
     shorten,
     play() {
-      this.playing = true;
-      this.audio.play();
+      this.playing = true
+      this.audio.play()
     },
     pause() {
-      this.audio.pause();
-      this.playing = false;
+      this.audio.pause()
+      this.playing = false
     },
     goPrev() {
-      if (this.prev) Ebus.$emit("newCue", this.prev, true);
+      if (this.prev) Ebus.$emit('newCue', this.prev, true)
     },
     loadingEnd() {
-      this.loading = false;
+      this.loading = false
     }
   },
   mounted() {
-    Ebus.$on("newCue", (song, autoplay) => {
-      if (song === this.song) return;
-      this.loading = true;
-      this.prev = this.song;
-      if (this.audio) this.pause();
-      this.song = song;
-      this.audio = new Audio(this.song.preview);
-      if (autoplay) this.play();
+    Ebus.$on('newCue', (song, autoplay) => {
+      if (song === this.song) return
+      this.loading = true
+      this.prev = this.song
+      if (this.audio) this.pause()
+      this.song = song
+      this.audio = new Audio(this.song.preview)
+      if (autoplay) this.play()
 
       if (this.prev) {
         if (this.prev.album.cover_medium == this.song.album.cover_medium) {
           setTimeout(() => {
-            this.loading = false;
-          }, 20);
+            this.loading = false
+          }, 20)
         }
       }
 
-      this.audio.addEventListener("ended", () => {
-        this.playing = false;
-      });
-    });
+      this.audio.addEventListener('ended', () => {
+        this.playing = false
+      })
+    })
   }
-};
+}
 </script>

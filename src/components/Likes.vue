@@ -29,27 +29,27 @@
 </template>
 
 <script>
-import { shorten } from "../helpers";
-import { Ebus } from "../Ebus.js";
+import { shorten } from '../helpers'
+import { Ebus } from '../Ebus.js'
 
 export default {
-  name: "likes",
+  name: 'likes',
   data() {
-    return {};
+    return {}
   },
   methods: {
     shorten,
     removeFav(song) {
-      this.$store.commit("unlike", song);
+      this.$store.commit('unlike', song)
     },
     cue(song) {
-      Ebus.$emit("newCue", song, false);
+      Ebus.$emit('newCue', song, false)
     }
   },
   computed: {
     likes() {
-      return this.$store.state.likes;
+      return this.$store.state.likes
     }
   }
-};
+}
 </script>

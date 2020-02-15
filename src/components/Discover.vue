@@ -24,11 +24,11 @@
 </template>
 
 <script>
-import Feed from "./Feed";
-import Genres from "../static/GenresMap";
+import Feed from './Feed'
+import Genres from '../static/GenresMap'
 export default {
-  name: "Discover",
-  resource: "Genres",
+  name: 'discover',
+  resource: 'Genres',
   components: {
     Feed
   },
@@ -37,13 +37,13 @@ export default {
       genres: Genres,
       genreId: 132,
       playlistId: 2098157264
-    };
+    }
   },
   methods: {
     getGenre(playlistId, genreId) {
-      this.playlistId = playlistId;
-      this.genreId = genreId;
+      this.playlistId = playlistId
+      this.genreId = genreId
     }
   }
-};
+}
 </script>

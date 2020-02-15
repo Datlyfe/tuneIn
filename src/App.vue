@@ -1,16 +1,25 @@
 <template>
   <div class="app">
-    <Home />
+    <div class="container">
+      <div class="red"></div>
+      <div class="black"></div>
+      <Menu />
+      <Main />
+      <Cue />
+    </div>
   </div>
 </template>
 
 <script>
-import "./sass/app.scss";
-import Home from "./views/Home";
+import Main from '@/components/Main'
+import Menu from '@/components/Menu'
+import Cue from '@/components/Cue'
 export default {
-  name: "app",
+  name: 'app',
   components: {
-    Home
+    Cue,
+    Menu,
+    Main
   }
-};
+}
 </script>

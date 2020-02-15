@@ -31,60 +31,67 @@
 </template>
 
 <script>
-import { Ebus } from "../Ebus.js";
-import { abbreviate, shorten, isLiked } from "../helpers";
+import { Ebus } from '../Ebus.js'
+import { shorten } from '../helpers'
+import apiService from '@/services/api'
+
+const isLiked = (likes, id) => {
+  let song = likes.filter(song => song.id === id)
+  if (song.length === 1) return true
+  return false
+}
+
 export default {
-  name: "feed",
-  resource: "Playlist",
+  name: 'feed',
+  resource: 'Playlist',
   data() {
     return {
       feed: null,
       loading: true
-    };
+    }
   },
   computed: {
     likes() {
-      return this.$store.state.likes;
+      return this.$store.state.likes
     }
   },
-  props: ["genreId"],
+  props: ['genreId'],
   methods: {
-    abbreviate,
     isLiked,
     shorten,
     getBgImg(src) {
       return {
         backgroundImage: `url(${src})`
-      };
+      }
     },
     likeSong(song) {
       if (isLiked(this.likes, song.id)) {
-        this.$store.commit("unlike", song);
+        this.$store.commit('unlike', song)
       } else {
-        this.$store.commit("likeSong", song);
+        this.$store.commit('likeSong', song)
       }
     },
     cue(song) {
-      Ebus.$emit("newCue", song, true);
+      Ebus.$emit('newCue', song, true)
     }
   },
   watch: {
     genreId(to, from) {
-      this.loading = true;
-      this.feed = null;
-      if (to === from) return;
-      this.$getResource("playlist", to).then(data => {
-        this.feed = data;
+      this.loading = true
+      this.feed = null
+      if (to === from) return
+      apiService.playlist(to).then(data => {
+        this.feed = data
         setTimeout(() => {
-          this.loading = false;
-        }, 100);
-      });
+          this.loading = false
+        }, 100)
+      })
     }
   },
   async beforeMount() {
-    this.loading = true;
-    this.feed = await this.$getResource("playlist", this.genreId);
-    this.loading = false;
+    this.loading = true
+    this.feed = await apiService.playlist(this.genreId)
+    this.loading = false
   }
-};
+}
 </script>

@@ -1,9 +1,15 @@
 <template>
   <div class="main">
-    <router-view />
+    <component :is="currentView" />
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    currentView() {
+      return this.$store.state.currentView
+    }
+  }
+}
 </script>

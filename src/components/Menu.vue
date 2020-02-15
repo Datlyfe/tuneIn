@@ -2,24 +2,23 @@
   <div class="menu">
     <template v-if="$mq === 'sm' || $mq === 'md'">
       <div class="mobile-watermark">
-        <a rel="noreferrer" href="https://github.com/Datlyfe/tuneIn" target="_blank">
+        <a
+          rel="noreferrer"
+          href="https://github.com/Datlyfe/tuneIn"
+          target="_blank"
+        >
           <i class="bx bxl-github icon"></i>
         </a>
       </div>
-      <!-- <div class="mobile-logo">
-        <img  src="@/assets/img/logo.png" alt="Logo" />
-      </div> -->
       <ul class="mobile-list">
-        <router-link
-          exact-active-class="active-menu-mobile"
-          :to="item.to"
-          tag="li"
-          v-for="item in [...exploreItems,...servicesItems]"
+        <li
+          @click="changeView(item.view)"
+          v-for="item in [...exploreItems, ...servicesItems]"
           :key="item.name"
           class="mobile-list-item"
         >
           <i :class="['icon', item.icon]"></i>
-        </router-link>
+        </li>
       </ul>
     </template>
 
@@ -34,34 +33,32 @@
       <nav class="nav">
         <h3 class="nav__label">Explore</h3>
         <ul class="nav__list">
-          <router-link
-            exact-active-class="active-menu"
+          <li
+            @click="changeView(item.view)"
             v-for="item in exploreItems"
             :key="item.name"
-            tag="li"
-            :to="item.to"
             class="nav__list__item"
           >
             <i :class="['icon', item.icon]"></i>
             <span class="nav__list__link">{{ item.name }}</span>
-          </router-link>
+          </li>
         </ul>
       </nav>
       <!-- Services -->
       <nav class="nav services">
         <h3 class="nav__label">Services</h3>
         <ul class="nav__list">
-          <router-link
-            exact-active-class="active-menu"
+          <li
+            @click="changeView(item.view)"
             v-for="item in servicesItems"
             :key="item.name"
-            tag="li"
-            :to="item.to"
             class="nav__list__item"
           >
-            <i :class="['icon', item.icon, { star: item.name == 'Premium' }]"></i>
+            <i
+              :class="['icon', item.icon, { star: item.name == 'Premium' }]"
+            ></i>
             <span class="nav__list__link">{{ item.name }}</span>
-          </router-link>
+          </li>
         </ul>
       </nav>
       <!-- Watermark -->
@@ -86,39 +83,44 @@ export default {
     return {
       exploreItems: [
         {
-          name: "Discover",
-          to: "/",
-          icon: "bx bxs-album"
+          name: 'Discover',
+          view: 'discover',
+          icon: 'bx bxs-album'
         },
         {
-          name: "Search",
-          to: "/search",
-          icon: "bx bx-search"
+          name: 'Search',
+          view: 'search',
+          icon: 'bx bx-search'
         },
         {
-          name: "Your Tunes",
-          to: "/likes",
-          icon: "bx bxs-heart"
+          name: 'Your Tunes',
+          view: 'likes',
+          icon: 'bx bxs-heart'
         }
       ],
       servicesItems: [
         {
-          name: "Get The App",
-          to: "/app",
-          icon: "bx bxs-circle"
+          name: 'Get The App',
+          view: 'page404',
+          icon: 'bx bxs-circle'
         },
         {
-          name: "Premium",
-          to: "/premium",
-          icon: "bx bxs-star"
+          name: 'Premium',
+          view: 'page404',
+          icon: 'bx bxs-star'
         },
         {
-          name: "Settings",
-          to: "/settings",
-          icon: "bx bxs-cog"
+          name: 'Settings',
+          view: 'page404',
+          icon: 'bx bxs-cog'
         }
       ]
-    };
+    }
+  },
+  methods: {
+    changeView(view) {
+      this.$store.commit('setCurrentView', view)
+    }
   }
-};
+}
 </script>

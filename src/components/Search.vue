@@ -35,41 +35,42 @@
   </div>
 </template>
 <script>
-import { shorten } from "../helpers";
-import { Ebus } from "../Ebus.js";
+import { shorten } from '../helpers'
+import { Ebus } from '../Ebus.js'
+import apiService from '@/services/api'
 
 export default {
-  name: "search",
-  resource: "Search",
+  name: 'search',
+  resource: 'Search',
   data() {
     return {
-      term: "",
+      term: '',
       loading: false,
       searchResults: null,
       searchTerm: null
-    };
+    }
   },
   methods: {
     shorten,
     getBgImg(src) {
       return {
         backgroundImage: `url(${src})`
-      };
+      }
     },
     cue(song) {
-      Ebus.$emit("newCue", song, false);
+      Ebus.$emit('newCue', song, false)
     },
     async search(e) {
-      this.loading = true;
-      e.preventDefault();
-      this.searchResults = null;
-      this.searchTerm = this.term;
-      this.searchResults = await this.$getResource("search", this.term);
+      this.loading = true
+      e.preventDefault()
+      this.searchResults = null
+      this.searchTerm = this.term
+      this.searchResults = await apiService.search(this.term)
 
       setTimeout(() => {
-        this.loading = false;
-      }, 300);
+        this.loading = false
+      }, 300)
     }
   }
-};
+}
 </script>
