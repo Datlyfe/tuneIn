@@ -4,7 +4,7 @@ This is a javascript project developed with VueJs.
 
 Simple and elegant music discovery app
 
-⭐ if you like it.
+⭐ the repo if you like it.
 
 ## Getting Started 🚀
 
