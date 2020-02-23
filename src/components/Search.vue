@@ -22,7 +22,10 @@
               @click="cue(res)"
               class="cover"
               :style="{
-                backgroundImage: `url(${res.album.cover_small})`
+                backgroundImage: `url(${res.album.cover_small.replace(
+                  /^http:\/\/e-cdn-images.deezer.com\//i,
+                  'https://e-cdns-images.dzcdn.net/'
+                )})`
               }"
             ></div>
           </div>

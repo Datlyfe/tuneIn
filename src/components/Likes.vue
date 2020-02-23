@@ -10,7 +10,10 @@
           class="cover"
           @click="cue(fav)"
           :style="{
-            backgroundImage: `url(${fav.album.cover_medium})`
+            backgroundImage: `url(${fav.album.cover_medium.replace(
+              /^http:\/\/e-cdn-images.deezer.com\//i,
+              'https://e-cdns-images.dzcdn.net/'
+            )})`
           }"
         ></div>
         <div class="info">

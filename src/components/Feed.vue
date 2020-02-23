@@ -9,7 +9,10 @@
               @click="cue(song)"
               class="cover"
               :style="{
-                backgroundImage: `url(${song.album.cover_small})`
+                backgroundImage: `url(${song.album.cover_small.replace(
+                  /^http:\/\/e-cdn-images.deezer.com\//i,
+                  'https://e-cdns-images.dzcdn.net/'
+                )})`
               }"
             ></div>
           </div>

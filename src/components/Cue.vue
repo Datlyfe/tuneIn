@@ -4,7 +4,12 @@
       <h3 class="label">Now playing</h3>
       <img
         :class="['cover', { spin: isPlaying }]"
-        :src="song.album.cover_medium"
+        :src="
+          song.album.cover_medium.replace(
+            /^http:\/\/e-cdn-images.deezer.com\//i,
+            'https://e-cdns-images.dzcdn.net/'
+          )
+        "
         alt
       />
       <span class="title">{{ song.title }}</span>
