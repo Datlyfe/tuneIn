@@ -66,7 +66,9 @@ export default {
         if (song.value && newSong.id === song.value.id) return
         song.value = newSong
         audioSrc.value = song.value.preview
-        audio.setAttribute('src', song.value.preview)
+          .replace(/^http:\/\/cdn/i, 'https://cdns')
+          .replace(/deezer.com/i, 'dzcdn.net')
+        audio.setAttribute('src', audioSrc.value)
       })
     })
 
