@@ -5,10 +5,14 @@
 </template>
 
 <script>
+import { computed } from '@vue/composition-api'
 export default {
-  computed: {
-    currentView() {
-      return this.$store.state.currentView
+  setup(_, { root }) {
+    const currentView = computed(() => {
+      return root.$store.state.currentView
+    })
+    return {
+      currentView
     }
   }
 }

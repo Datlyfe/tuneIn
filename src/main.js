@@ -2,6 +2,8 @@ import Vue from 'vue'
 import App from './App.vue'
 import store from './store'
 import VueMq from 'vue-mq'
+import swc from 'svg-web-component'
+import vc from '@vue/composition-api'
 
 import Discover from '@/components/Discover'
 import Search from '@/components/Search'
@@ -11,8 +13,9 @@ import Likes from '@/components/Likes'
   Vue.component(c['name'], c)
 })
 
-import '@/sass/app.scss'
-import 'boxicons/css/boxicons.min.css'
+Vue.use(vc)
+swc.load(require('./icons'))
+import './app.scss'
 
 Vue.use(VueMq, {
   breakpoints: {

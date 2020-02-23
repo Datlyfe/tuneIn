@@ -1,0 +1,86 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: white;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  &__label {
+    text-transform: uppercase;
+    color: #f0e6e8;
+    font-weight: 400;
+    padding: 2.5px 0;
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 1s both;
+}
+
+.spin {
+  animation: spin 15s linear infinite;
+}
+
+.signal {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  border: 5px solid #db1d40;
+  margin: -15px 0 0 -15px;
+  opacity: 0;
+  animation: pulsate 1s ease-out infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}

@@ -25,25 +25,63 @@
 
 <script>
 import Feed from './Feed'
-import Genres from '../static/GenresMap'
+import genres from '../static/GenresMap'
+import { ref } from '@vue/composition-api'
 export default {
   name: 'discover',
-  resource: 'Genres',
   components: {
     Feed
   },
-  data() {
-    return {
-      genres: Genres,
-      genreId: 132,
-      playlistId: 2098157264
+  setup() {
+    const genreId = ref('132')
+    const playlistId = ref('2098157264')
+
+    const getGenre = (pId, gId) => {
+      playlistId.value = pId
+      genreId.value = gId
     }
-  },
-  methods: {
-    getGenre(playlistId, genreId) {
-      this.playlistId = playlistId
-      this.genreId = genreId
+    return {
+      genres,
+      genreId,
+      playlistId,
+      getGenre
     }
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.genres {
+  margin: 30px -8px;
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+
+    &__item {
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: capitalize;
+      color: #8f8f8f;
+      margin: 0 10px;
+      transition: all 0.2s;
+      &:hover {
+        color: white;
+      }
+    }
+
+    &__link {
+      cursor: pointer;
+    }
+  }
+}
+
+.active {
+  color: #db1d40;
+  font-weight: 700;
+  &:hover {
+    color: #db1d40;
+  }
+}
+</style>
