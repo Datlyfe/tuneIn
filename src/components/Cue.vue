@@ -4,12 +4,7 @@
       <h3 class="label">Now playing</h3>
       <img
         :class="['cover', { spin: isPlaying }]"
-        :src="
-          song.album.cover_medium.replace(
-            /^http:\/\/e-cdn-images.deezer.com\//i,
-            'https://e-cdns-images.dzcdn.net/'
-          )
-        "
+        :src="getImageUrl(song.album.cover_medium)"
         alt
       />
       <span class="title">{{ song.title }}</span>
@@ -77,12 +72,20 @@ export default {
       audio.remove()
     })
 
+    const getImageUrl = url => {
+      return (
+        'https://e-cdns-images.dzcdn.net/images/' +
+        url.substring(url.indexOf('/cover') + 1)
+      )
+    }
+
     return {
       song,
       isPlaying,
       play,
       pause,
-      hasLoaded
+      hasLoaded,
+      getImageUrl
     }
   }
 }

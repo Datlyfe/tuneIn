@@ -22,10 +22,7 @@
               @click="cue(res)"
               class="cover"
               :style="{
-                backgroundImage: `url(${res.album.cover_small.replace(
-                  /^http:\/\/e-cdn-images.deezer.com\//i,
-                  'https://e-cdns-images.dzcdn.net/'
-                )})`
+                backgroundImage: `url(${getImageUrl(res.album.cover_small)})`
               }"
             ></div>
           </div>
@@ -66,13 +63,21 @@ export default {
       }, 10)
     }
 
+    const getImageUrl = url => {
+      return (
+        'https://e-cdns-images.dzcdn.net/images/' +
+        url.substring(url.indexOf('/cover') + 1)
+      )
+    }
+
     return {
       loading,
       searchResults,
       searchTerm,
       staticSearchTerm,
       cue,
-      search
+      search,
+      getImageUrl
     }
   }
 }

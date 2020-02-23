@@ -43,7 +43,7 @@ export const useHasAudioLoaded = ({ srcRef, onLoad, onError }) => {
     hasLoaded.value = false
     const audio = document.createElement('audio')
     audio.src = src
-    audio.addEventListener('canplaythrough', () => {
+    audio.addEventListener('canplay', () => {
       if (isMounted.value) {
         hasLoaded.value = true
         onLoad && onLoad(event)

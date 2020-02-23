@@ -10,10 +10,7 @@
           class="cover"
           @click="cue(fav)"
           :style="{
-            backgroundImage: `url(${fav.album.cover_medium.replace(
-              /^http:\/\/e-cdn-images.deezer.com\//i,
-              'https://e-cdns-images.dzcdn.net/'
-            )})`
+            backgroundImage: `url(${getImageUrl(fav.album.cover_medium)})`
           }"
         ></div>
         <div class="info">
@@ -43,10 +40,17 @@ export default {
     const cue = song => {
       Ebus.$emit('newCue', song, false)
     }
+    const getImageUrl = url => {
+      return (
+        'https://e-cdns-images.dzcdn.net/images/' +
+        url.substring(url.indexOf('/cover') + 1)
+      )
+    }
     return {
       likes,
       removeFav,
-      cue
+      cue,
+      getImageUrl
     }
   }
 }

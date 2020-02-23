@@ -9,10 +9,7 @@
               @click="cue(song)"
               class="cover"
               :style="{
-                backgroundImage: `url(${song.album.cover_small.replace(
-                  /^http:\/\/e-cdn-images.deezer.com\//i,
-                  'https://e-cdns-images.dzcdn.net/'
-                )})`
+                backgroundImage: `url(${getImageUrl(song.album.cover_small)})`
               }"
             ></div>
           </div>
@@ -67,6 +64,13 @@ export default {
       }
     }
 
+    const getImageUrl = url => {
+      return (
+        'https://e-cdns-images.dzcdn.net/images/' +
+        url.substring(url.indexOf('/cover') + 1)
+      )
+    }
+
     const cue = song => {
       Ebus.$emit('newCue', song, true)
     }
@@ -99,7 +103,8 @@ export default {
       isLiked,
       likes,
       likeSong,
-      cue
+      cue,
+      getImageUrl
     }
   }
 }
