@@ -8,7 +8,7 @@
     "dev": "vue-cli-service serve"
   },
   "dependencies": {
-    "@vue/composition-api": "^0.4.0",
+    "@vue/composition-api": "^0.6.7",
     "boxicons": "^2.0.5",
     "circular-std": "^1.0.3",
     "fetch-jsonp": "^1.1.3",
