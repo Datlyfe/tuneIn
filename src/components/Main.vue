@@ -1,19 +1,30 @@
 <template>
   <div class="main">
-    <component :is="currentView" />
+    <component :is="store.currentView" />
   </div>
 </template>
 
-<script>
-import { computed } from '@vue/composition-api'
-export default {
-  setup(_, { root }) {
-    const currentView = computed(() => {
-      return root.$store.state.currentView
-    })
+<script lang="ts">
+import { defineComponent } from "vue";
+import { useStore } from "@/store";
+import Discover from "./Discover.vue";
+import Search from "./Search.vue";
+import Likes from "./Likes.vue";
+import Page404 from "./Page404.vue";
+export default defineComponent({
+  name: "Main",
+  setup() {
+    const store = useStore();
+
     return {
-      currentView
-    }
-  }
-}
+      store,
+    };
+  },
+  components: {
+    Discover,
+    Search,
+    Likes,
+    Page404,
+  },
+});
 </script>

@@ -12,7 +12,7 @@
           v-for="genre in genres"
           :key="genre.id"
           class="genres__list__item"
-          :class="{ active: genreId == genre.id }"
+          :class="{ active: genreId === genre.id }"
         >
           <span class="genres__list__link">{{ genre.name }}</span>
         </li>
@@ -23,31 +23,17 @@
   </div>
 </template>
 
-<script>
-import Feed from './Feed'
-import genres from '../static/GenresMap'
-import { ref } from '@vue/composition-api'
-export default {
-  name: 'discover',
-  components: {
-    Feed
-  },
-  setup() {
-    const genreId = ref('132')
-    const playlistId = ref('2098157264')
+<script setup lang="ts">
+import Feed from "@/components/Feed.vue";
+import genres from "../static/GenresMap";
+import { ref } from "vue";
+const genreId = ref("132");
+const playlistId = ref(2098157264);
 
-    const getGenre = (pId, gId) => {
-      playlistId.value = pId
-      genreId.value = gId
-    }
-    return {
-      genres,
-      genreId,
-      playlistId,
-      getGenre
-    }
-  }
-}
+const getGenre = (pId: number, gId: string) => {
+  playlistId.value = pId;
+  genreId.value = gId;
+};
 </script>
 
 <style lang="scss" scoped>

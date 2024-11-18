@@ -5,12 +5,12 @@
     </div>
 
     <ul class="loved">
-      <li v-for="fav in likes" :key="fav.id" class="item">
+      <li v-for="fav in store.likes" :key="fav.id" class="item">
         <div
           class="cover"
           @click="cue(fav)"
           :style="{
-            backgroundImage: `url(${getImageUrl(fav.album.cover_medium)})`
+            backgroundImage: `url(${getImageUrl(fav.album.cover_medium)})`,
           }"
         ></div>
         <div class="info">
@@ -23,37 +23,24 @@
   </div>
 </template>
 
-<script>
-import { Ebus } from '../Ebus.js'
-import { computed } from '@vue/composition-api'
+<script setup lang="ts">
+import { bus } from "@/bus.js";
+import { useStore } from "@/store";
+import type { Song } from "@/types";
+const store = useStore();
 
-export default {
-  name: 'likes',
-  setup(_, { root }) {
-    const likes = computed(() => {
-      return root.$store.state.likes
-    })
 
-    const removeFav = song => {
-      root.$store.commit('unlike', song)
-    }
-    const cue = song => {
-      Ebus.$emit('newCue', song, false)
-    }
-    const getImageUrl = url => {
-      return (
-        'https://e-cdns-images.dzcdn.net/images/' +
-        url.substring(url.indexOf('/cover') + 1)
-      )
-    }
-    return {
-      likes,
-      removeFav,
-      cue,
-      getImageUrl
-    }
-  }
-}
+const removeFav = (song: Song) => {
+  store.unlike(song);
+};
+const cue = (song: Song) => {
+  bus.emit("newCue", song);
+};
+const getImageUrl = (url: string) => {
+  return `https://e-cdns-images.dzcdn.net/images/${url.substring(
+    url.indexOf("/cover") + 1
+  )}`;
+};
 </script>
 
 <style lang="scss" scoped>

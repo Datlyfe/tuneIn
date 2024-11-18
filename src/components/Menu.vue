@@ -1,6 +1,6 @@
 <template>
   <aside class="menu">
-    <template v-if="$mq === 'sm' || $mq === 'md'">
+    <div v-if="mq.lgMinus">
       <ul class="mobile-list">
         <li
           @click="changeView(item.view)"
@@ -21,9 +21,9 @@
           <svg-icon name="github" class="icon" />
         </a>
       </div>
-    </template>
+    </div>
 
-    <template v-if="$mq === 'lg'">
+    <div v-if="mq.xlPlus">
       <!-- Logo -->
 
       <div class="logo">
@@ -72,61 +72,59 @@
           <svg-icon name="github" class="icon" />
         </a>
       </div>
-    </template>
+    </div>
   </aside>
 </template>
 
-<script>
-import { ref } from '@vue/composition-api'
-export default {
-  setup(_, { root }) {
-    const exploreItems = ref([
-      {
-        name: 'Discover',
-        view: 'discover',
-        icon: 'album'
-      },
-      {
-        name: 'Search',
-        view: 'search',
-        icon: 'search'
-      },
-      {
-        name: 'Your Tunes',
-        view: 'likes',
-        icon: 'heart'
-      }
-    ])
+<script setup lang="ts">
+import { useStore } from "@/store";
+// @ts-expect-error
+import { useMq } from "vue3-mq";
 
-    const servicesItems = ref([
-      {
-        name: 'Get The App',
-        view: 'page404',
-        icon: 'circle'
-      },
-      {
-        name: 'Premium',
-        view: 'page404',
-        icon: 'star'
-      },
-      {
-        name: 'Settings',
-        view: 'page404',
-        icon: 'cog'
-      }
-    ])
+import { ref } from "vue";
+const store = useStore();
 
-    const changeView = view => {
-      root.$store.commit('setCurrentView', view)
-    }
+const mq = useMq();
+console.log(mq);
+const exploreItems = ref([
+  {
+    name: "Discover",
+    view: "discover",
+    icon: "album",
+  },
+  {
+    name: "Search",
+    view: "search",
+    icon: "search",
+  },
+  {
+    name: "Your Tunes",
+    view: "likes",
+    icon: "heart",
+  },
+]);
 
-    return {
-      exploreItems,
-      servicesItems,
-      changeView
-    }
-  }
-}
+const servicesItems = ref([
+  {
+    name: "Get The App",
+    view: "page404",
+    icon: "circle",
+  },
+  {
+    name: "Premium",
+    view: "page404",
+    icon: "star",
+  },
+  {
+    name: "Settings",
+    view: "page404",
+    icon: "cog",
+  },
+]);
+
+const changeView = (view: string) => {
+  store.setCurrentView(view);
+};
 </script>
 
 <style lang="scss" scoped>

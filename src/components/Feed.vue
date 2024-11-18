@@ -9,7 +9,7 @@
               @click="cue(song)"
               class="cover"
               :style="{
-                backgroundImage: `url(${getImageUrl(song.album.cover_small)})`
+                backgroundImage: `url(${getImageUrl(song.album.cover_small)})`,
               }"
             ></div>
           </div>
@@ -20,7 +20,7 @@
           <div class="rank">
             <svg-icon
               @click="likeSong(song)"
-              :class="[{ liked: isLiked(likes, song.id) }, 'fav']"
+              :class="[{ liked: isLiked(song.id) }, 'fav']"
               name="heart"
             ></svg-icon>
           </div>
@@ -30,84 +30,66 @@
   </div>
 </template>
 
-<script>
-import { Ebus } from '../Ebus.js'
-import { ref, computed, watch, onBeforeMount } from '@vue/composition-api'
-import apiService from '@/services/api'
+<script setup lang="ts">
+const props = defineProps<{ genreId: string }>();
 
-export default {
-  props: {
-    genreId: {
-      type: String,
-      required: true
-    }
-  },
-  setup(props, { root }) {
-    const feed = ref([])
-    const loading = ref(true)
+import { bus } from "@/bus.js";
+import apiService from "@/services/api";
+import type { Song } from "@/types";
+import { useStore } from "@/store";
+import { onBeforeMount, ref, watch } from "vue";
 
-    const likes = computed(() => {
-      return root.$store.state.likes
-    })
+const store = useStore();
+const feed = ref<Song[]>([]);
+const loading = ref(true);
 
-    const isLiked = (likes, id) => {
-      let song = likes.filter(song => song.id === id)
-      if (song.length === 1) return true
-      return false
-    }
 
-    const likeSong = song => {
-      if (isLiked(likes.value, song.id)) {
-        root.$store.commit('unlike', song)
-      } else {
-        root.$store.commit('likeSong', song)
-      }
-    }
+const isLiked = (id: string) => {
+  const song = store.likes.filter((song) => song.id === id);
+  if (song.length === 1) return true;
+  return false;
+};
 
-    const getImageUrl = url => {
-      return (
-        'https://e-cdns-images.dzcdn.net/images/' +
-        url.substring(url.indexOf('/cover') + 1)
-      )
-    }
-
-    const cue = song => {
-      Ebus.$emit('newCue', song, true)
-    }
-
-    watch(
-      () => props.genreId,
-      (to, from) => {
-        loading.value = true
-        feed.value = null
-        if (to == from) return
-
-        apiService.playlist(to).then(data => {
-          feed.value = data
-          setTimeout(() => {
-            loading.value = false
-          }, 10)
-        })
-      }
-    )
-
-    onBeforeMount(async () => {
-      loading.value = true
-      feed.value = await apiService.playlist(props.genreId)
-      loading.value = false
-    })
-
-    return {
-      feed,
-      loading,
-      isLiked,
-      likes,
-      likeSong,
-      cue,
-      getImageUrl
-    }
+const likeSong = (song:Song) => {
+  if (isLiked(song.id)) {
+    store.unlike(song);
+  } else {
+    store.likeSong(song);
   }
-}
+};
+
+const getImageUrl = (url: string) => {
+  return `https://e-cdns-images.dzcdn.net/images/${url.substring(
+    url.indexOf("/cover") + 1
+  )}`;
+};
+
+const cue = (song: Song) => {
+  console.log(song)
+  bus.emit("newCue", song);
+};
+
+watch(
+  () => props.genreId,
+  (to, from) => {
+    loading.value = true;
+    feed.value = [];
+    if (to === from) return;
+
+    apiService.playlist(to).then((data) => {
+      feed.value = data;
+      setTimeout(() => {
+        loading.value = false;
+      }, 10);
+    });
+  }
+);
+
+onBeforeMount(async () => {
+  loading.value = true;
+  feed.value = await apiService.playlist(props.genreId);
+  loading.value = false;
+});
 </script>
 
 <style lang="scss" scoped>

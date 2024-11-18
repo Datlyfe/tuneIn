@@ -22,7 +22,7 @@
               @click="cue(res)"
               class="cover"
               :style="{
-                backgroundImage: `url(${getImageUrl(res.album.cover_small)})`
+                backgroundImage: `url(${getImageUrl(res.album.cover_small)})`,
               }"
             ></div>
           </div>
@@ -36,51 +36,34 @@
     </div>
   </div>
 </template>
-<script>
-import { Ebus } from '../Ebus.js'
-import apiService from '@/services/api'
-import { ref } from '@vue/composition-api'
+<script setup lang="ts">
+import { bus } from "@/bus";
+import type { Song } from "@/types";
+import apiService from "@/services/api";
+import { ref } from "vue";
 
-export default {
-  name: 'search',
-  setup() {
-    const loading = ref(false)
-    const searchResults = ref(null)
-    const searchTerm = ref('')
-    const staticSearchTerm = ref(searchTerm)
+const loading = ref(false);
+const searchResults = ref<Song[]>([]);
+const searchTerm = ref("");
+const staticSearchTerm = ref(searchTerm);
 
-    const cue = song => {
-      Ebus.$emit('newCue', song, false)
-    }
+const cue = (song: Song) => {
+  bus.emit("newCue", song);
+};
 
-    const search = async e => {
-      e.preventDefault()
-      loading.value = true
-      staticSearchTerm.value = searchTerm.value
-      searchResults.value = await apiService.search(searchTerm.value)
-      setTimeout(() => {
-        loading.value = false
-      }, 10)
-    }
+const search = async (e: Event) => {
+  e.preventDefault();
+  loading.value = true;
+  staticSearchTerm.value = searchTerm.value;
+  searchResults.value = await apiService.search(searchTerm.value);
+  setTimeout(() => {
+    loading.value = false;
+  }, 10);
+};
 
-    const getImageUrl = url => {
-      return (
-        'https://e-cdns-images.dzcdn.net/images/' +
-        url.substring(url.indexOf('/cover') + 1)
-      )
-    }
-
-    return {
-      loading,
-      searchResults,
-      searchTerm,
-      staticSearchTerm,
-      cue,
-      search,
-      getImageUrl
-    }
-  }
-}
+const getImageUrl = (url:string) => {
+  return`https://e-cdns-images.dzcdn.net/images/${url.substring(url.indexOf("/cover") + 1)}`
+};
 </script>
 
 <style lang="scss" scoped>

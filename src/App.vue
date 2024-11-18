@@ -10,18 +10,10 @@
   </div>
 </template>
 
-<script>
-import Main from '@/components/Main'
-import Menu from '@/components/Menu'
-import Cue from '@/components/Cue'
-export default {
-  name: 'app',
-  components: {
-    Cue,
-    Menu,
-    Main
-  }
-}
+<script setup lang="ts">
+import Main from "@/components/Main.vue";
+import Menu from "@/components/Menu.vue";
+import Cue from "@/components/Cue.vue";
 </script>
 
 <style lang="scss">

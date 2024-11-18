@@ -5,7 +5,7 @@
       <img
         :class="['cover', { spin: isPlaying }]"
         :src="getImageUrl(song.album.cover_medium)"
-        alt
+        alt=""
       />
       <span class="title">{{ song.title }}</span>
       <span class="artist">{{ song.artist.name }}</span>
@@ -29,66 +29,54 @@
   </div>
 </template>
 
-<script>
-import { ref, onMounted, onUnmounted } from '@vue/composition-api'
-import { useHasAudioLoaded } from '@/hooks'
-import { Ebus } from '../Ebus.js'
-export default {
-  setup() {
-    const song = ref(null)
-    const isPlaying = ref(false)
-    const audio = new Audio()
-    const audioSrc = ref(null)
+<script setup lang="ts">
+import { ref, onMounted, onUnmounted } from "vue";
+import { useHasAudioLoaded } from "@/hooks";
+import { bus } from "@/bus.js";
+import type { Song } from "@/types";
 
-    const hasLoaded = useHasAudioLoaded({
-      srcRef: audioSrc,
-      onLoad: () => {
-        audio.play()
-      }
-    })
+const song = ref<Song>();
+const isPlaying = ref(false);
+const audio = new Audio();
+const audioSrc = ref<string>('');
 
-    const play = () => audio.play()
-    const pause = () => audio.pause()
-    const setIsPlaying = state => (isPlaying.value = state)
+const hasLoaded = useHasAudioLoaded({
+  srcRef: audioSrc,
+  onLoad: () => {
+    audio.play();
+  },
+});
 
-    audio.addEventListener('ended', () => setIsPlaying(false))
-    audio.addEventListener('playing', () => setIsPlaying(true))
-    audio.addEventListener('pause', () => setIsPlaying(false))
-    audio.addEventListener('emptied', () => setIsPlaying(false))
+const play = () => audio.play();
+const pause = () => audio.pause();
+const setIsPlaying = (state: boolean) => {
+  isPlaying.value = state;
+};
 
-    onMounted(() => {
-      Ebus.$on('newCue', newSong => {
-        if (song.value && newSong.id === song.value.id) return
-        song.value = newSong
-        audioSrc.value = song.value.preview
-          .replace(/^http:\/\/cdn/i, 'https://cdns')
-          .replace(/deezer.com/i, 'dzcdn.net')
-        audio.setAttribute('src', audioSrc.value)
-      })
-    })
+audio.addEventListener("ended", () => setIsPlaying(false));
+audio.addEventListener("playing", () => setIsPlaying(true));
+audio.addEventListener("pause", () => setIsPlaying(false));
+audio.addEventListener("emptied", () => setIsPlaying(false));
 
-    onUnmounted(() => {
-      audio.removeAttribute('src')
-      audio.remove()
-    })
+onMounted(() => {
+  bus.on("newCue", (newSong) => {
+    if (song.value && newSong.id === song.value.id) return;
+    song.value = newSong;
+    audioSrc.value = song.value?.preview
+    audio.setAttribute("src", audioSrc.value);
+  });
+});
 
-    const getImageUrl = url => {
-      return (
-        'https://e-cdns-images.dzcdn.net/images/' +
-        url.substring(url.indexOf('/cover') + 1)
-      )
-    }
+onUnmounted(() => {
+  audio.removeAttribute("src");
+  audio.remove();
+});
 
-    return {
-      song,
-      isPlaying,
-      play,
-      pause,
-      hasLoaded,
-      getImageUrl
-    }
-  }
-}
+const getImageUrl = (url: string) => {
+  return `https://e-cdns-images.dzcdn.net/images/${url.substring(
+    url.indexOf("/cover") + 1
+  )}`;
+};
 </script>
 
 <style lang="scss" scoped>

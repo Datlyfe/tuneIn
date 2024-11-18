@@ -5,8 +5,4 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'page404'
-}
-</script>
+<script setup lang="ts"></script>
