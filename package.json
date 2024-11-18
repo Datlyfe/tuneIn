@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc -b && vite build"
+    "build": "vite build"
   },
   "dependencies": {
     "boxicons": "^2.0.5",
